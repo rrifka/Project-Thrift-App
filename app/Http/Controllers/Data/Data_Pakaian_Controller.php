@@ -9,11 +9,11 @@ use Illuminate\Support\Facades\Log;
 class Data_Pakaian_Controller extends Controller
 {
     public function createData_Pakaian () {
-        return view('web.create.pakaian');
+        return view('web.create.data_pakaian');
     }
     public function updateData_Pakaian ($id) {
         $data = Data_Pakaian::readData_PakaianById($id);
-        return view('web.update.pakaian', ['pakaian' => $data]);
+        return view('web.update.data_pakaian', ['data_pakaian' => $data]);
     }
     public function create(Request $request)
     {

@@ -20,34 +20,34 @@ class Pages_Controller extends Controller
         return view('public.register');
     }
     public function dashboardPage () {
-        return view('web.tampil.dashboard');
+        return view('web.view.dashboard');
     }
     public function kategori_pakaianPage () {
         $data = Kategori_Pakaian::readKategori_PakaianAll();
-        return view('web.tampil.kategori_pakaian', ['kategori_pakaian' => $data]);
+        return view('web.view.kategori_pakaian', ['kategori_pakaian' => $data]);
     }
     public function data_pakaianPage () {
         $data = Data_Pakaian::readData_PakaianAll();
-        return view('web.tampil.data_pakaian', ['data_pakaian' => $data]);
+        return view('web.view.data_pakaian', ['data_pakaian' => $data]);
     }
     public function review_pakaianPage () {
         $data = Review_Pakaian::readReview_PakaianAll();
-        return view('web.tampil.review_pakaian', ['review_pakaian' => $data]);
+        return view('web.view.review_pakaian', ['review_pakaian' => $data]);
     }
     public function data_userPage () {
         $data = Data_User::readData_UserAll();
-        return view('web.tampil.data_user', ['data_user' => $data]);
+        return view('web.view.data_user', ['data_user' => $data]);
     }
     public function metode_pembayaranPage () {
         $data = Metode_Pembayaran::readMetode_PembayaranAll();
-        return view('web.tampil.metode_pembayaran', ['metode_pembayaran' => $data]);
+        return view('web.view.metode_pembayaran', ['metode_pembayaran' => $data]);
     }
     public function data_pembelianPage () {
         $data = Data_Pembelian::readData_PembelianAll();
-        return view('web.tampil.data_pembelian', ['data_pembelian' => $data]);
+        return view('web.view.data_pembelian', ['data_pembelian' => $data]);
     }
     public function detail_pembelianPage () {
         $data = Detail_Pembelian::readDetail_PembelianAll();
-        return view('web.tampil.detail_pembelian', ['detail_pembelian' => $data]);
+        return view('web.view.detail_pembelian', ['detail_pembelian' => $data]);
     }
 }

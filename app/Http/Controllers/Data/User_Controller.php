@@ -57,6 +57,16 @@ class User_Controller extends Controller
             return back()->withInput();
         }
     }
+    public function upload_profile (Request $request, $id)
+    {   
+        $profil = $request->file('profil');
+        if ($profil) {
+            Data_User::upload_profile($id, $profil);
+            Log::debug('🟣 File baru berhasil ditambahkan/disimpan');
+            return back()->with('success', 'Foto profil berhasil diperbarui!');
+        }
+        return back()->with('failed', 'Foto profil gagal diperbarui!');
+    }
     public function create(Request $request)
     {
         $profil = $request->file('profil');
