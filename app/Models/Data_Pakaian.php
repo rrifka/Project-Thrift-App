@@ -21,7 +21,6 @@ class Data_Pakaian extends Model
         'pakaian_harga',
         'pakaian_stok',
         'pakaian_gambar_url',
-        'pakaian_status',
     ];
     protected static function createData_Pakaian($data, UploadedFile $gambar = null)
     {
@@ -34,7 +33,7 @@ class Data_Pakaian extends Model
     }    
     protected static function readData_PakaianAll ()
     {
-        $data = DB::table('pakaian');
+        $data = DB::table('pakaian')->get();
         return $data;
     }
     protected static function readData_PakaianPaginate ()

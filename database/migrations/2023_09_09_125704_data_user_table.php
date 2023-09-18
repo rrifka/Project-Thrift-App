@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('user_email', 50)->unique();
             $table->char('user_notelp', 14);
             $table->string('user_alamat', 200);
-            $table->string('user_profil_url')->default('public/user/profile/non.png');
-            $table->enum('user_level', ['admin', 'pengguna']);
+            $table->string('user_profil_url')->nullable(true);
+            $table->enum('user_level', ['admin', 'pengguna'])->default('pengguna');
             $table->boolean('user_status')->default(true);
             $table->timestamps();
         });

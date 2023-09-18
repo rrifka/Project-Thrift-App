@@ -25,7 +25,7 @@ class Metode_Pembayaran extends Model
     }
     protected static function readMetode_PembayaranAll ()
     {
-        $data = DB::table('metode_pembayaran');
+        $data = DB::table('metode_pembayaran')->get();
         return $data;
     }
     protected static function readMetode_PembayaranPaginate ()

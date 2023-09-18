@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('metode_pembayaran_user_id');
             $table->enum('metode_pembayaran_jenis', ['ovo', 'dana', 'bca', 'cod']);
             $table->string('metode_pembayaran_nama', 100);
-            $table->integer('metode_pembayaran_nomor');
+            $table->bigInteger('metode_pembayaran_nomor');
             $table->timestamps();
 
             $table->foreign('metode_pembayaran_user_id')->references('user_id')->on('user')->onUpdate('cascade')->onDelete('cascade');

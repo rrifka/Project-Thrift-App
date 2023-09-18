@@ -30,6 +30,10 @@ class Data_User extends Authenticatable
     protected $hidden = [
         'user_password',
     ];
+    protected static function register ($data)
+    {
+        return self::create($data);
+    }
     protected static function createData_User($data, UploadedFile $profil = null)
     {
         $user = $data;
@@ -41,7 +45,7 @@ class Data_User extends Authenticatable
     }    
     protected static function readData_UserAll ()
     {
-        $data = DB::table('user');
+        $data = DB::table('user')->get();
         return $data;
     }
     protected static function readData_UserPaginate ()

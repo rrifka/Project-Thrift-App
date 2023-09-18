@@ -25,7 +25,7 @@ class Review_Pakaian extends Model
     }
     protected static function readReview_PakaianAll ()
     {
-        $data = DB::table('review');
+        $data = DB::table('review')->get();
         return $data;
     }
     protected static function readReview_PakaianPaginate ()

@@ -25,7 +25,7 @@ class Detail_Pembelian extends Model
     }
     protected static function readDetail_PembelianAll ()
     {
-        $data = DB::table('detail_pembelian');
+        $data = DB::table('detail_pembelian')->get();
         return $data;
     }
     protected static function readDetail_PembelianPaginate ()

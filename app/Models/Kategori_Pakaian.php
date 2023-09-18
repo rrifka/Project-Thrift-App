@@ -24,7 +24,7 @@ class Kategori_Pakaian extends Model
     }
     protected static function readKategori_PakaianAll ()
     {
-        $data = DB::table('kategori_pakaian');
+        $data = DB::table('kategori_pakaian')->get();
         return $data;
     }
     protected static function readKategori_PakaianPaginate ()
