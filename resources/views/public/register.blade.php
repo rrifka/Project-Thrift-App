@@ -5,18 +5,103 @@
 @section('icon', 'img/book_1.png')
 
 @section('header')
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.18.0/font/bootstrap-icons.css"></script>
+
     <style>
         body {
-            background: radial-gradient(circle at top right, transparent 10%, #dcdaff 10%, #dcdaff 20%, transparent 21%), radial-gradient(circle at left bottom, transparent 10%, #dcdaff 10%, #dcdaff 20%, transparent 21%), radial-gradient(circle at top left, transparent 10%, #dcdaff 10%, #dcdaff 20%, transparent 21%), radial-gradient(circle at right bottom, transparent 10%, #dcdaff 10%, #dcdaff 20%, transparent 21%), radial-gradient(circle at center, #dcdaff 30%, transparent 31%);
-            background-size: 4em 4em;
             background-color: #ffffff;
-            opacity: 1
+            font-family: 'Arial', sans-serif;
+            .link-underline-opacity-0 {
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+
+        }
+
+        .container {
+            margin-top: 4%;
+        }
+
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+            background-color: #272643; 
+            padding: 20px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            text-align: center;
+        }
+
+        .card-header img {
+            width: 80px;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            font-weight: bold;
+            color: #495057;
+        }
+
+        .input-group-text {
+            background-color: #5e548e; 
+            border: none;
+            color: #ffffff;
+        }
+
+        .form-control {
+            border-radius: 5px;
+        }
+
+        .btn-primary {
+            background-color: #5e548e; 
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            width: 100%;
+        }
+
+        .btn-primary:hover {
+            background-color: #9f86c0; 
+        }
+
+        .card-footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #f1f1f1;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+
+        .link-underline {
+            text-decoration: none;
+        }
+
+        .link-underline-opacity-0 {
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .link-underline:hover .link-underline-opacity-0 {
+            opacity: 1;
         }
     </style>
 @endsection
 
 @section('main')
-    <section class="pt-4 container">
+    <section class="container">
         <div class="card shadow-lg">
             <div class="card-header">
                 <img src="{{ asset('img/logo.svg') }}" alt="img-logo" class="img-logo" loading="lazy" />
@@ -109,12 +194,14 @@
                 </form>
             </div>
             <div class="card-footer">
-                <a href="{{ route('login') }}" class="link-underline link-underline-opacity-0">
-                    <p class="text-center" style="color: #8423ff;">
-                        Sudah punya akun? Silahkan masuk
+                <a href="{{ route('login') }}" class="link-underline">
+                    <p class="text-center" style="color: #5e548e;"> 
+                        <span class="link-underline-opacity-0">
+                            Sudah punya akun? Silahkan masuk
+                        </span>
                     </p>
                 </a>
-            </div>
+            </div>            
         </div>
     </section>
 @endsection

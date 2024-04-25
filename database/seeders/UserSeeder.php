@@ -15,7 +15,7 @@ class UserSeeder extends Seeder
     {
         Data_User::insert([
             [
-                'user_id' => rand(pow(10, 15), pow(10, 16) - 1),
+                'user_id' => '1',
                 'user_fullname' => 'Administrator',
                 'user_username' => 'admin',
                 'user_password' => bcrypt('AkunAdminPerpus'),
@@ -28,7 +28,7 @@ class UserSeeder extends Seeder
                 'updated_at' => '2023-08-01 23:00:00',
             ],
             [
-                'user_id' => rand(pow(10, 15), pow(10, 16) - 1),
+                'user_id' => '2',
                 'user_fullname' => 'Pengguna',
                 'user_username' => 'pengguna',
                 'user_password' => bcrypt('AkunPenggunaPerpus'),

@@ -2,7 +2,7 @@
     @php $userRole = Auth::user()->user_level; @endphp
 @endauth
 
-<nav class="navbar shadow-xl navbar-expand-lg" style="background-color: #8423FF;">
+<nav class="navbar shadow-xl navbar-expand-lg" style="background-color: #231942;">
     <div class="container-fluid">
         <a class="navbar-brand" href="{{ route('dashboard') }}"><img width="150px" src="{{ asset('img/logo.svg') }}"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -27,11 +27,11 @@
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
                     <a class="nav-link d-grid" href="{{ route('checkout') }}"><button class="btn btn-light"><i
-                                class="bi bi-basket"></i> Cart</button></a>
+                                class="bi bi-basket"></i></button></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link d-grid" href="{{ route('profil') }}"><button class="btn btn-light"><i
-                                class="bi bi-person-circle"></i> Profile</button></a>
+                                class="bi bi-person-circle"></i></button></a>
                 </li>
             </ul>
         </div>

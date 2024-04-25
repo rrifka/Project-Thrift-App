@@ -96,7 +96,7 @@
                                     </td>
                                 </tr>
                             @endforeach
-                            <input type="hidden" name="user" value="2">
+                            <input type="hidden" name="user" value="{{ $user->user_id }}">
                             <input type="hidden" name="tanggal">
                             <input type="hidden" name="status" value="beli">
                             <tr>

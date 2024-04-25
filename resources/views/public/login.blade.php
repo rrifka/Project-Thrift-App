@@ -5,26 +5,94 @@
 @section('icon', 'img/book_1.png')
 
 @section('header')
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.18.0/font/bootstrap-icons.css"></script>
+
     <style>
         body {
-            background: radial-gradient(circle at top right, transparent 10%, #dcdaff 10%, #dcdaff 20%, transparent 21%), radial-gradient(circle at left bottom, transparent 10%, #dcdaff 10%, #dcdaff 20%, transparent 21%), radial-gradient(circle at top left, transparent 10%, #dcdaff 10%, #dcdaff 20%, transparent 21%), radial-gradient(circle at right bottom, transparent 10%, #dcdaff 10%, #dcdaff 20%, transparent 21%), radial-gradient(circle at center, #dcdaff 30%, transparent 31%);
-            background-size: 4em 4em;
-            background-color: #ffffff;
-            opacity: 1
+            background-color: #e9ecef;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .card {
+            width: 400px;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+            background-color: #231942; 
+            padding: 20px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            text-align: center;
+        }
+
+        .card-header img {
+            width: 80px;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            font-weight: bold;
+            color: #495057;
+        }
+
+        .input-group-text {
+            background-color: #5e548e; 
+            border: none;
+            color: #ffffff;
+        }
+
+        .form-control {
+            border-radius: 5px;php
+        }
+
+        .btn-primary {
+            background-color: #5e548e; 
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            width: 100%;
+        }
+
+        .btn-primary:hover {
+            background-color: #9f86c0; 
+        }
+
+        .card-footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #f1f1f1;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
         }
     </style>
 @endsection
 
 @section('main')
     <section class="login-container">
-        @if (session('success'))
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                <strong>Berhasil!</strong> {{ session('success') }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        @elseif ($errors->has('message'))
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                <strong>Gagal!</strong> {{ $errors->first('message') }}
+        @if (session('success') || $errors->has('message'))
+            <div class="alert alert-{{ session('success') ? 'success' : 'danger' }} alert-dismissible fade show"
+                role="alert">
+                <strong>{{ session('success') ? 'Sukses!' : 'Gagal!' }}</strong>
+                {{ session('success') ? session('success') : $errors->first('message') }}
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         @endif
@@ -44,10 +112,10 @@
                             <input type="text" name="username" id="username" class="form-control"
                                 placeholder="Masukkan username Anda" required />
                         </div>
+                        @error('username')
+                            <p class="text-danger">{{ $message }}</p>
+                        @enderror
                     </div>
-                    @error('username')
-                        <p class="text-danger">{{ $message }}</p>
-                    @enderror
                     <div class="form-group my-3">
                         <label for="password" class="form-label">Password</label>
                         <div class="input-group">
@@ -57,10 +125,10 @@
                             <input type="password" name="password" id="password" class="form-control"
                                 placeholder="Masukkan password Anda" required />
                         </div>
+                        @error('password')
+                            <p class="text-danger">{{ $message }}</p>
+                        @enderror
                     </div>
-                    @error('password')
-                        <p class="text-danger">{{ $message }}</p>
-                    @enderror
                     <div class="form-group my-3 d-grid">
                         <button class="btn btn-primary" type="submit">Login</button>
                     </div>
@@ -68,8 +136,8 @@
             </div>
             <div class="card-footer">
                 <a href="{{ route('register') }}" class="link-underline link-underline-opacity-0">
-                    <p class="text-center" style="color: #8423ff;">
-                        Tidak punya akun? Silahkan mendaftar
+                    <p class="text-center" style="color: #5e548e;"> 
+                        Belum punya akun? Silakan mendaftar
                     </p>
                 </a>
             </div>
